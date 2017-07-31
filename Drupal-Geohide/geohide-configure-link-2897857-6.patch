@@ -1,0 +1,11 @@
+diff --git a/geohide.info b/geohide.info
+index b9ec044..0a34d0a 100644
+--- a/geohide.info
++++ b/geohide.info
+@@ -2,5 +2,5 @@ name = Geohide
+ description = Geolocalize and Hide: Geolocalize a visitor and hide any given field depending on node's title.
+ core = 7.x 
+ version = 1.0.1
+-configure = admin/config/content/current_posts
++configure = admin/config/content/geohide
+ 

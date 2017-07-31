@@ -1,0 +1,21 @@
+diff --git a/geohide.module b/geohide.module
+index 603f099..d6d6589 100644
+--- a/geohide.module
++++ b/geohide.module
+@@ -14,8 +14,14 @@ include 'geolocalize/get_ip.php';
+ function geohide_help($path, $arg) {
+   switch ($path) {
+     case "admin/help#geohide":
+-      return '' . t("Geolocalize a visitor and hide any given field depending on node's title") . '';
+-      break;
++	    $output = '';
++	    $output .= '<h3>' . t('About') . '</h3>';
++	    $output .= '<p>' . t('The Geohide module allows you to create geo-localized campaigns hidding or showing diverse kinds of information on your website, filtering the users by IP.') . '</p>';
++
++	    $output .= '<h3>' . t('Uses') . '</h3>';
++	    $output .= '<p>' . t("Geolocalize a visitor and hide any given field depending on node's title") . '</p>';
++	    return $output;
++            break;
+   }
+ }
+ 

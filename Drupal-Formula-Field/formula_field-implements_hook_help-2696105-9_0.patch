@@ -1,0 +1,50 @@
+diff --git a/formula_field.module b/formula_field.module
+index e61179c..3b52003 100644
+--- a/formula_field.module
++++ b/formula_field.module
+@@ -1,5 +1,36 @@
+ <?php
+ 
++
++/**
++*  Implements hook_help().
++*  
++*  Displays help and module information.
++* 
++*  @param path
++*  Which path of the site we're using to display help
++*  @param arg
++*   Array that holds the current path as returned from arg() function
++*/
++
++function formula_field_help($path, $arg) {
++	  switch ($path) {
++            case "admin/help#formula_field":
++		    $output = '';
++		    $output .= '<h3>' . t('About') . '</h3>';
++		    $output .= '<p>' . t('The formula_field module is a new module that allows you to create a new functionality from a new field type. By installing and activating this module, you can use all the "Integer" type fields to construct simple mathematical formulas and obtain direct results.') . '</p>';
++                    $output .= '<h3>' . t('Uses') . '</h3>';
++		    $output .= '<p>' . t('First, you must have installed and activated a series of dependencies in your Drupal. Formula_field requires the following Number, Field, Field, SQL storage and Chaos tools modules.') . '</p>';
++		    $output .= '<p>' . t('Second, when formula_field and all its dependencies are installed and enabled, then you will edit the fields of any type of content enabled in your Drupal,and  you will find that you can create a new field "formular_field" within the type select when adding a new field to Your content.') . '</p>';
++                    $output .= '<p>' . t('Third, Editing the properties of the new field "formula_field", you can access the "formula builder", the small menu of formula creation.') . '</p>';
++		    $output .= '<h3>' . t('How it works') . '</h3>';
++		    $output .= '<p>' . t('As a new field type asociated to a type of content, the field will fetching all "integer" fields in a bundle for eg: "article" and allows you  to create a formula, based on available fields for that particular bundle. The value for this field is calculated based on that formula.') . '</p>';
++		    $output .= '<p>' . t('Thanks to the formula builder, you will can create basic formula models like addition, minus, multiply or divide from values present in any bundle and calculates its value. The formula_field also works fine with Entities, Entityforms, Webforms and Nodes.') . '</p>';
++		    return $output;
++		    break;
++	                  }
++}
++
++
+ /**
+  * Implements hook_field_info().
+  */
+@@ -231,7 +262,7 @@ function formula_add_item($form, &$form_state) {
+     }
+   }
+   else {
+-    $opetator = "";
++    $operator = "";
+   }
+   $selected_field = $form_state['values']['instance']['settings']['add_item']['itemfield'];
+   $current_formula .= $operator . $selected_field;
